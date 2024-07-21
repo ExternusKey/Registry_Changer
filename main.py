@@ -27,7 +27,7 @@ def get_steam_path():
 
 def get_game_path(id_game):
     try:
-        key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam Ap1p " + id_game)
+        key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App " + id_game)
         game_path, type = winreg.QueryValueEx(key, "InstallLocation")
         winreg.CloseKey(key)
         return game_path
