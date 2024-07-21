@@ -27,7 +27,7 @@ def get_steam_path():
 
 def get_game_path(id_game):
     try:
-        key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App " + id_game)
+        key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam Ap1p " + id_game)
         game_path, type = winreg.QueryValueEx(key, "InstallLocation")
         winreg.CloseKey(key)
         return game_path
@@ -52,7 +52,7 @@ def main():
             change_registry(path_to_reg)
             game_launch(path_to_steam_exe, id_game)
         else:
-            subprocess.run([os.path.join(path_to_steam, "steam.exe")])
+            subprocess.run([path_to_steam_exe])
             print('Путь к игре не был найден. Запускается Steam.')
     else:
         print("Путь к Steam не был найден в реестре.")
